@@ -336,7 +336,7 @@ async function main() {
   app.get("/details/:id", verifyToken, function (req, res) {
     var id = req.params.id;
     console.log(id);
-    var sql = "select * from employee_master where emp_id='" + id + "'";
+    var sql = `select e.*, CONCAT(em.f_name, ' ',em.l_name) as 'supervisor_name' from employee_master as e INNER JOIN employee_master as em ON em.emp_id = e.emp_id where e.emp_id=${id}`;
     con.query(sql, function (err, result, fields) {
       if (err) throw err;
       console.log(result);

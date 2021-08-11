@@ -266,7 +266,7 @@ async function main() {
 
   app.get("/list", function (req, res) {
     var sql =
-      "SELECT e.*, CONCAT(em.f_name, ' ',em.l_name) as 'supervisor_name' FROM employee_master as e INNER JOIN employee_master as em ON e.sup_id = em.emp_id;";
+      "SELECT e.*, CONCAT(em.f_name, ' ',em.l_name) as 'supervisor_name' FROM employee_master as e LEFT JOIN employee_master as em ON e.sup_id = em.emp_id;";
     con.query(sql, function (err, result, fields) {
       if (err) throw err;
       console.log(result);

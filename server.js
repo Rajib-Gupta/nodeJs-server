@@ -109,7 +109,7 @@ async function main() {
     var l_name = req.body.l_name;
     var phone = req.body.phone;
     var email = req.body.email;
-    var sup_id = req.body.sup_id;
+    var sup_id = req.body.sup_id?req.body.sup_id:0;
     var role = req.body.role;
     var password = req.body.password;
 

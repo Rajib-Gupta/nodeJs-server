@@ -3,7 +3,8 @@ const appSettings = {
       PORT: process.env.MYSQL_PORT,
       HOST: process.env.MYSQL_HOST,
       USER:process.env.MYSQL_USER,
-      DB: process.env.MYSQL_DB
+      DB: process.env.MYSQL_DB,
+      PASSWORD:process.env.PASSWORD
     },
     app:{
         PORT:process.env.PORT,

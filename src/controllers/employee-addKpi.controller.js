@@ -20,7 +20,7 @@ const employeeAddKpi = async (req, res) => {
   try {
     var sql =
     `insert into employee_kpi(
-      emp_id
+      emp_id,
       sup_id,
       feedback_emp_id,
       availability,

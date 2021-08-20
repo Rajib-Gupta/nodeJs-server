@@ -32,10 +32,10 @@ const employeeUpdate = async (req, res) => {
       id +
       "'";
     const rows = await query(sql);
-    if (!rows.length()) {
-      res.json(createError.InternalServerError());
+    if (!rows.length) {
+     return res.json(createError.InternalServerError());
     }
-    res.json("connected");
+    res.json(rows);
   } catch (error) {
     console.log(error.message);
     res.json(createError.InternalServerError());

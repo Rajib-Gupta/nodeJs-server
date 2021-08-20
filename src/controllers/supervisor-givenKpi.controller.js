@@ -12,7 +12,8 @@ const supervisorGivenKpi= async (req, res) => {
           delete emp.password;
           return emp;
         });
-        res.json({ employees });
+        var kpi = employees.length ? { ...employees[0] } : {};
+        res.json(kpi);
     } catch (error) {
       console.log(error.message);
       res.json(createError.InternalServerError());

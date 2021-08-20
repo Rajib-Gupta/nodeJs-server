@@ -15,13 +15,11 @@ const employeeAddKpi = async (req, res) => {
     var innovative = req.body.innovative;
     var teamPlayer = req.body.teamPlayer;
     var dependibility = req.body.dependibility;
-    var submit_date = req.body.submit_date;
-    var tenure = req.body.tenure;
     var feedback_emp_id = req.body.feedback_emp_id;
     console.log(req.body);
   try {
     var sql =
-      "insert into employee_kpi(emp_id,sup_id,feedback_emp_id,availability,ontime,punctuality,regularity,timetorepair,criticalproblemsolving,clienthandling,innovative,teamPlayer,dependibility,submit_date,tenure) values ('" +
+      "insert into employee_kpi(emp_id,sup_id,feedback_emp_id,availability,ontime,punctuality,regularity,timetorepair,criticalproblemsolving,clienthandling,innovative,teamPlayer,dependibility) values ('" +
       emp_id +
       "','" +
       sup_id +
@@ -46,11 +44,7 @@ const employeeAddKpi = async (req, res) => {
       "','" +
       teamPlayer +
       "','" +
-      dependibility +
-      "','" +
-      submit_date +
-      "','" +
-      tenure +
+      dependibility    
       "')";
     console.log(`sql`, sql);
     const rows = await query(sql);

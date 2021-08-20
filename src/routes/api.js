@@ -14,6 +14,7 @@ const login = require("../controllers/master-login.controller");
 const employeeDelete = require("../controllers/employee-delete.controller");
 const employeeAvgKpi = require("../controllers/employee-averageKpi.controller");
 const verifyToken = require("../controllers/verifyToken.controller");
+const employeeGetOwnKpi= require("../controllers/employee-getOwn.controller")
 
 
 router.get("/list", verifyToken.verifyToken, api.employeeList);
@@ -40,6 +41,7 @@ router.get(
 );
 router.get("/emp_given_kpi_details/:id", givenKpiEmployee.employeeGivenKpi);
 router.get("/avgKpi/:id", employeeAvgKpi.employeeAvgKpi);
+router.get("/employeeOwn/:id",employeeGetOwnKpi.employeeGetOwnKpi);
 router.post("/masterlogin", login.masterLogin);
 router.delete(
   "/delete/:id",

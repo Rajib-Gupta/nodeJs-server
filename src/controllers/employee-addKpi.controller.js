@@ -19,32 +19,35 @@ const employeeAddKpi = async (req, res) => {
     console.log(req.body);
   try {
     var sql =
-      "insert into employee_kpi(emp_id,sup_id,feedback_emp_id,availability,ontime,punctuality,regularity,timetorepair,criticalproblemsolving,clienthandling,innovative,teamPlayer,dependibility) values ('" +
-      emp_id +
-      "','" +
-      sup_id +
-      "','" +
-      feedback_emp_id +
-      "','" +
-      availability +
-      "','" +
-      ontime +
-      "','" +
-      punctuality +
-      "','" +
-      regularity +
-      "','" +
-      timetorepair +
-      "','" +
-      criticalproblemsolving +
-      "','" +
-      clienthandling +
-      "','" +
-      innovative +
-      "','" +
-      teamPlayer +
-      "','" +
-      dependibility+")";
+    `insert into employee_kpi(
+      emp_id
+      sup_id,
+      feedback_emp_id,
+      availability,
+      ontime,
+      punctuality,
+      regularity,
+      timetorepair,
+      criticalproblemsolving,
+      clienthandling,
+      innovative,
+      teamPlayer,
+      dependibility) 
+      values (
+        "${emp_id}",
+        "${sup_id}",
+        "${feedback_emp_id}",
+        "${availability}",
+        "${ontime}",
+        "${punctuality}",
+        "${regularity}",
+        "${timetorepair}",
+        "${criticalproblemsolving}",
+        "${clienthandling}",
+        "${innovative}",
+        "${teamPlayer}",
+        "${dependibility}"
+      )`;
     console.log(`sql`, sql);
     const rows = await query(sql);
     // if (!rows.length()) {

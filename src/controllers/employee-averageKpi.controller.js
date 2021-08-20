@@ -11,7 +11,6 @@ const employeeAvgKpi = async (req, res) => {
     const rows = await query(sql);
     var avg = rows.length ? { ...rows[0] } : {};
     res.json(avg);
-    res.json(rows);
   } catch (error) {
     console.log(error.message);
     res.json(createError.InternalServerError());

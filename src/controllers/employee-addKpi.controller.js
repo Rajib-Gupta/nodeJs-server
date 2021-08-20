@@ -44,8 +44,7 @@ const employeeAddKpi = async (req, res) => {
       "','" +
       teamPlayer +
       "','" +
-      dependibility    
-      "')";
+      dependibility+")";
     console.log(`sql`, sql);
     const rows = await query(sql);
     // if (!rows.length()) {

@@ -32,7 +32,7 @@ const employeeUpdate = async (req, res) => {
       id +
       "'";
     const rows = await query(sql);
-    if (!rows.length) {
+    if (!rows.affectedRows) {
      return res.json(createError.InternalServerError());
     }
     res.json(rows);

@@ -19,7 +19,7 @@ const employeeGetOwnKpi= require("../controllers/employee-getOwn.controller")
 
 router.get("/list", verifyToken.verifyToken, api.employeeList);
 router.post("/create",  create.employeeCreate);
-router.put("/update/:id", verifyToken.verifyToken, update.employeeUpdate);
+router.put("/update/:id", update.employeeUpdate);
 router.post("/add/:id", verifyToken.verifyToken, addKpi.employeeAddKpi);
 router.post(
   "/employees",

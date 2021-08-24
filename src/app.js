@@ -2,6 +2,7 @@ const express = require("express");
 const router = require("./routes/api");
 const cors = require("cors");
 const morgan = require("morgan");
+const path = require("path")
 
 const app = express();
 require("./database/connection");
@@ -9,6 +10,9 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 app.use(express.urlencoded());
+
+app.use(express.static(path.resolve(__dirname, "../", "upload")));
+console.log(path.resolve(__dirname, "../", "upload"));
 
 app.use("/api", router);
 

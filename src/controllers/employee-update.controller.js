@@ -8,7 +8,7 @@ const employeeUpdate = async (req, res) => {
   var l_name = req.body.l_name;
   var phone = req.body.phone;
   var email = req.body.email;
-  var status = req.body.status;
+  var role = req.body.role;
   var password = req.body.password;
   var sup_id= Number(req.body.sup_id)===0?0:req.body.sup_id;
   console.log(req.body);
@@ -26,8 +26,8 @@ const employeeUpdate = async (req, res) => {
       password +
       "',sup_id='" +
       sup_id +
-      "',status='" +
-      status +
+      "',role='" +
+      role +
       "' where emp_id='" +
       id +
       "'";

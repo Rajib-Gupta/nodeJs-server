@@ -14,11 +14,15 @@ const login = require("../controllers/master-login.controller");
 const employeeDelete = require("../controllers/employee-delete.controller");
 const employeeAvgKpi = require("../controllers/employee-averageKpi.controller");
 const verifyToken = require("../controllers/verifyToken.controller");
-const employeeGetOwnKpi= require("../controllers/employee-getOwn.controller")
-
+const employeeGetOwnKpi = require("../controllers/employee-getOwn.controller");
+const download = require("../controllers/download-excel.controller");
+const {
+  uploads,
+  imageUpload,
+} = require("../controllers/image-upload.controller");
 
 router.get("/list", verifyToken.verifyToken, api.employeeList);
-router.post("/create",  create.employeeCreate);
+router.post("/create", create.employeeCreate);
 router.put("/update/:id", update.employeeUpdate);
 router.post("/add/:id", verifyToken.verifyToken, addKpi.employeeAddKpi);
 router.post(
@@ -41,12 +45,15 @@ router.get(
 );
 router.get("/emp_given_kpi_details/:id", givenKpiEmployee.employeeGivenKpi);
 router.get("/avgKpi/:id", employeeAvgKpi.employeeAvgKpi);
-router.get("/employeeOwn/:id",employeeGetOwnKpi.employeeGetOwnKpi);
+router.get("/employeeOwn/:id", employeeGetOwnKpi.employeeGetOwnKpi);
 router.post("/masterlogin", login.masterLogin);
 router.delete(
   "/delete/:id",
   verifyToken.verifyToken,
   employeeDelete.employeeDelete
 );
+router.get("/download-data", download.download);
+
+router.post("/upload-image/:emp_id", uploads.single("file"), imageUpload);
 
 module.exports = router;

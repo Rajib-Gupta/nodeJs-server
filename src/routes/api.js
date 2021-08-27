@@ -20,6 +20,7 @@ const {
   uploads,
   imageUpload,
 } = require("../controllers/image-upload.controller");
+const ownDetails=require('../controllers/own-details.controller');
 
 router.get("/list", verifyToken.verifyToken, api.employeeList);
 router.post("/create", create.employeeCreate);
@@ -53,6 +54,7 @@ router.delete(
   employeeDelete.employeeDelete
 );
 router.get("/download-data", download.download);
+router.get("/own-details/:id", ownDetails.ownDetails);
 
 router.post("/upload-image/:emp_id", uploads.single("file"), imageUpload);
 

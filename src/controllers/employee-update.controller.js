@@ -10,7 +10,7 @@ const employeeUpdate = async (req, res) => {
   var email = req.body.email;
   var role = req.body.role;
   var password = req.body.password;
-  req.body.sup_id  ? 0 : Number(req.body.sup_id);
+  var sup_id=req.body.sup_id  ? 0 : Number(req.body.sup_id);
   console.log(req.body);
 
   try {

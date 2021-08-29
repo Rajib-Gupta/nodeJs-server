@@ -10,7 +10,7 @@ const employeeUpdate = async (req, res) => {
   var email = req.body.email;
   var role = req.body.role;
   var password = req.body.password;
-  var sup_id=req.body.sup_id  ? 0 : Number(req.body.sup_id);
+  var sup_id = req.body.sup_id ?Number(req.body.sup_id):0;
   console.log(req.body);
 
   try {
@@ -27,9 +27,9 @@ const employeeUpdate = async (req, res) => {
       columns.push(`password = ${password}`);
     }
 
-    const sql = 
+    const sql =
       `update employee_master set ${columns.join(', ')} where emp_id ='${id}'`;
-    
+
 
     console.log(sql)
 

@@ -21,6 +21,7 @@ const {
   imageUpload,
 } = require("../controllers/image-upload.controller");
 const ownDetails=require('../controllers/own-details.controller');
+const {emailValidation}=require('../controllers/email-validations.controller');
 
 router.get("/list", verifyToken.verifyToken, api.employeeList);
 router.post("/create", create.employeeCreate);
@@ -57,5 +58,6 @@ router.get("/download-data", download.download);
 router.get("/own-details/:id", ownDetails.ownDetails);
 
 router.post("/upload-image/:emp_id", uploads.single("file"), imageUpload);
+ router.post("/emailValidation", emailValidation);
 
 module.exports = router;

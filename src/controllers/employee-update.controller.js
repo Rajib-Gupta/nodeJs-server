@@ -4,6 +4,7 @@ const { query } = require("../database/connection");
 const employeeUpdate = async (req, res) => {
   var id = req.params.id;
   console.log("test");
+  var employee_id=req.body.employee_id;
   var f_name = req.body.f_name;
   var l_name = req.body.l_name;
   var phone = req.body.phone;
@@ -15,6 +16,7 @@ const employeeUpdate = async (req, res) => {
 
   try {
     const columns = [
+      `employee_id='${employee_id}'`,
       `f_name = '${f_name}'`,
       `l_name = '${l_name}'`,
       `phone = '${phone}'`,
